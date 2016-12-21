@@ -27,4 +27,9 @@ final class HomeController
 		
         return $response;
     }
+
+    public function signup(Request $request, Response $response, $args)
+    {
+        return $this->view->render($response, 'signup.twig');
+    }
 }
