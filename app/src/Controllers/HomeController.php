@@ -37,4 +37,9 @@ final class HomeController
     {
         return $this->view->render($response, 'signin.twig');
     }
+
+    public function show(Request $request, Response $response, $args)
+    {
+        return $this->view->render($response, 'show.twig');
+    }
 }
