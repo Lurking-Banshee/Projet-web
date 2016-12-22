@@ -32,4 +32,9 @@ final class HomeController
     {
         return $this->view->render($response, 'signup.twig');
     }
+
+    public function signin(Request $request, Response $response, $args)
+    {
+        return $this->view->render($response, 'signin.twig');
+    }
 }
