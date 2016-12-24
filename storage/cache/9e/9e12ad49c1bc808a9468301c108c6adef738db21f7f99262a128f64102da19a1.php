@@ -16,21 +16,26 @@ class __TwigTemplate_841028818ec6288935dc855fccbd35d59e16fc1338c84bdfdd3126eedee
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<div class=\"row\">
-        <div class=\"col s12 m6\">
-          <div class=\"card blue-grey darken-1\">
-            <div class=\"card-content white-text\">
-              <span class=\"card-title\">test profile</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+        echo "<div class=\"container\"> <!-- Contient toute la page. -->
+    <div class=\"row\"> <!-- Contient une ligne. -->
+            <div class=\"card-panel col s12 m12 l12\" class=\"valign-wrapper\"> <!-- Une boîte pour le titre, centrée verticalement -->
+                <h5 class=\"center-align\">Votre profil</h5>
             </div>
-            <div class=\"card-action\">
-              <a href=\"#\">This is a link</a>
-              <a href=\"#\">This is a link</a>
+            <div class=\"card horizontal col s12 m12 l1é\" class=\"valign-wrapper\"> <!-- Et une boîte pour les informations personnelles -->
+              <div class=\"card-image\" class =\"valign-wrapper\"> <!-- La photo de profil -->
+                <img src=\"images/essai_profil.jpg\"  alt=\"\" class=\"circle responsive-img\" > <!-- C'est pour que l'image soit ronde, la classe. -->
+              </div>
+              <div class=\"card-content\"> <!-- Le contenu de la carte. -->
+                <ul class=\"collection\">
+                  <li class=\"collection-item\"> Votre pseudo : </li>
+                  <li class=\"collection-item\"> Votre adresse mail : </li>
+                </ul>
+              </div>
+
             </div>
-          </div>
         </div>
-      </div>";
+
+</div>";
     }
 
     public function getTemplateName()
@@ -43,18 +48,23 @@ class __TwigTemplate_841028818ec6288935dc855fccbd35d59e16fc1338c84bdfdd3126eedee
         return array (  19 => 1,);
     }
 }
-/* <div class="row">*/
-/*         <div class="col s12 m6">*/
-/*           <div class="card blue-grey darken-1">*/
-/*             <div class="card-content white-text">*/
-/*               <span class="card-title">test profile</span>*/
-/*               <p>I am a very simple card. I am good at containing small bits of information.*/
-/*               I am convenient because I require little markup to use effectively.</p>*/
+/* <div class="container"> <!-- Contient toute la page. -->*/
+/*     <div class="row"> <!-- Contient une ligne. -->*/
+/*             <div class="card-panel col s12 m12 l12" class="valign-wrapper"> <!-- Une boîte pour le titre, centrée verticalement -->*/
+/*                 <h5 class="center-align">Votre profil</h5>*/
 /*             </div>*/
-/*             <div class="card-action">*/
-/*               <a href="#">This is a link</a>*/
-/*               <a href="#">This is a link</a>*/
+/*             <div class="card horizontal col s12 m12 l1é" class="valign-wrapper"> <!-- Et une boîte pour les informations personnelles -->*/
+/*               <div class="card-image" class ="valign-wrapper"> <!-- La photo de profil -->*/
+/*                 <img src="images/essai_profil.jpg"  alt="" class="circle responsive-img" > <!-- C'est pour que l'image soit ronde, la classe. -->*/
+/*               </div>*/
+/*               <div class="card-content"> <!-- Le contenu de la carte. -->*/
+/*                 <ul class="collection">*/
+/*                   <li class="collection-item"> Votre pseudo : </li>*/
+/*                   <li class="collection-item"> Votre adresse mail : </li>*/
+/*                 </ul>*/
+/*               </div>*/
+/* */
 /*             </div>*/
-/*           </div>*/
 /*         </div>*/
-/*       </div>*/
+/* */
+/* </div>*/
