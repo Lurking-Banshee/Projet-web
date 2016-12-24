@@ -45,6 +45,16 @@ final class HomeController
         return $this->view->render($response, 'show.twig');
     }
 
+    public function search(Request $request, Response $response, $args)
+    {
+        return $this->view->render($response, 'search.twig');
+    }
+
+    public function profile(Request $request, Response $response, $args)
+    {
+        return $this->view->render($response, 'profile.twig');
+    }
+	
     public function addUser(Request $request, Response $response, $args)
     {
         if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])) {
