@@ -17,3 +17,14 @@ input[type="search"] {
     padding-left: 11px;
     padding-right: 11px;
 }
+
+.logo{
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 5%;
+}
+
+.logo-mobile{
+    height: 40px;
+    margin-top: 10%;
+}
