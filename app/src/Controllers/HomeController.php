@@ -46,7 +46,7 @@ final class HomeController
     public function show(Request $request, Response $response, $args)
     {
         $serie = Series::find($args['id']);
-        $tabSaison = $serie->saisons()->get();
+        $tabSaison = $serie->saisons()->orderBy('air_date','ASC')->get();
         foreach ($tabSaison as $season ){
             $tabEpisodes = $season->episodes()->get();
             $season['tabEpisodes'] = $tabEpisodes;
