@@ -12,7 +12,7 @@ $app->post('/signup', 'App\Controllers\HomeController:addUser');
 
 $app->get('/signin', 'App\Controllers\HomeController:signin')->setName('signin');
 
-$app->get('/show', 'App\Controllers\HomeController:show')->setName('show');
+$app->get('/show/{id}', 'App\Controllers\HomeController:show')->setName('show');
 
 $app->get('/search', 'App\Controllers\HomeController:search')->setName('search');
 
