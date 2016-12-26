@@ -18,34 +18,36 @@
 {% for season in seasons %}
 
 <div class="row container section grey lighten-3">
-    <article>
-        <div class="col s5 ">
-            <div class="card horizontal">
+        <div class="col l12">
+            <div class="card horizontal small">
                 <div class="card-image valign-wrapper">
                     <img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
                         <h3 class="header">{{ season.name }}</h3>
+                        <div class="chip">
+                            {{ season.air_date }}
+                        </div>
                         <p>{{ season.overview }}</p>
-                        <p>Date de diffusion : {{ season.air_date }}</p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="col s7">
+    </div>
+    <div class="row">
+        <div class="col l8 offset-l2">
             <ul class="collapsible" data-collapsible="accordion">
                 {% for episode in season.tabEpisodes %}
                     <li>
-                        <div class="collapsible-header">Episode 1 : {{ episode.name }}<i
+                        <div class="collapsible-header"><b>Episode {{ episode.number }} :</b> {{ episode.name }}<i
                                     class="material-icons red-text darken-1 right">add</i></div>
                         <div class="collapsible-body"><p class="white">{{ episode.overview }}</p></div>
                     </li>
                 {% endfor %}
             </ul>
         </div>
-    </article>
+    </div>
 </div>
 
 {% endfor %}
