@@ -10,6 +10,6 @@ $app->get('/signup', 'App\Controllers\HomeController:signup')->setName('signup')
 
 $app->get('/signin', 'App\Controllers\HomeController:signin')->setName('signin');
 
-$app->get('/show', 'App\Controllers\HomeController:show')->setName('show');
+$app->get('/show/{id}', 'App\Controllers\HomeController:show')->setName('show');
 
 $app->get('/users', 'App\Controllers\UserController:dispatch')->setName('userpage');
