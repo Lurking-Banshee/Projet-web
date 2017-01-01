@@ -139,19 +139,19 @@ final class HomeController
         }
 
         if (isset($_POST['company'])) {
-            $compagny = Companies::where('name', $_POST['company'])->get();
+            $compagny = Companies::where('name','like', '%'.$_POST['company'].'%')->get();
             $tabSeries[$compagny[0]->name] = $compagny[0]->series()->get();
             return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$compagny[0]->name]));
         }
 
         if (isset($_POST['creator'])) {
-            $creator = Creators::where('name', $_POST['creator'])->get();
+            $creator = Creators::where('name','like', '%'.$_POST['creator'].'%')->get();
             $tabSeries[$creator[0]->name] = $creator[0]->series()->get();
             return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$creator[0]->name]));
         }
 
         if (isset($_POST['name'])) {
-            $serie = Series::where('name', $_POST['name'])->get();
+            $serie = Series::where('name','like', '%'.$_POST['name'].'%')->get();
 
             return $this->view->render($response, 'resultSearch.twig', Array("series" => $serie));
         }
