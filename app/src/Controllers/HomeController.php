@@ -128,33 +128,34 @@ final class HomeController
         }
     }
 
-    public function resultSearch(Request $request, Response $response, $args){
+    public function resultSearch(Request $request, Response $response, $args)
+    {
         $tabSeries = Array();
 
-        if(isset($_POST['genre'])){
-            $genre = Genres::find($_POST['genre'] );
-            $tabSeries['genre'] = $genre->series()->get();
-            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$tabSeries['genre']));
+        if (isset($_POST['genre'])) {
+            $genre = Genres::find($_POST['genre']);
+            $tabSeries['genre'] = $genre[0]->series()->get();
+            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries['genre']));
         }
 
-        if(isset($_POST['company'])){
-            $compagny = Companies::where('name',$_POST['company'])->get();
+        if (isset($_POST['company'])) {
+            $compagny = Companies::where('name', $_POST['company'])->get();
             $tabSeries[$compagny->name] = $compagny[0]->series()->get();
-            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$tabSeries[$compagny->name]));
+            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$compagny->name]));
         }
 
-        if(isset($_POST['creator'])){
-            $creator = Creators::where('name',$_POST['creator'])->get();
+        if (isset($_POST['creator'])) {
+            $creator = Creators::where('name', $_POST['creator'])->get();
             $tabSeries[$creator->name] = $creator[0]->series()->get();
-            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$tabSeries[$creator->name]));
+            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$creator->name]));
         }
 
-        if(isset($_POST['name'])){
-             $serie= Series::where('name',$_POST['name'])->get();
+        if (isset($_POST['name'])) {
+            $serie = Series::where('name', $_POST['name'])->get();
 
-            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$serie));
+            return $this->view->render($response, 'resultSearch.twig', Array("series" => $serie));
         }
-
+    }
     public function loginUser(Request $request, Response $response, $args)
     {
         if (isset($_POST["email"]) && isset($_POST["password"])) {
