@@ -27,9 +27,9 @@ final class HomeController
     public function dispatch(Request $request, Response $response, $args)
     {
         $this->logger->info("Home page action dispatched");
-        $tabNouv = Series::orderBy('first_air_date','DESC')->take(4)->get();
-        $tabTend = Series::orderBy('popularity','DESC')->take(4)->get();
-        $this->view->render($response, 'homepage.twig',array('seriesNouv'=>$tabNouv,'seriesTend'=>$tabTend));
+        $tabNouv = Series::orderBy('first_air_date', 'DESC')->take(4)->get();
+        $tabTend = Series::orderBy('popularity', 'DESC')->take(4)->get();
+        $this->view->render($response, 'homepage.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend));
         return $response;
     }
 
@@ -46,15 +46,15 @@ final class HomeController
     public function show(Request $request, Response $response, $args)
     {
         $serie = Series::find($args['id']);
-        $tabSaison = $serie->saisons()->orderBy('air_date','ASC')->get();
-        foreach ($tabSaison as $season ){
-            $tabEpisodes = $season->episodes()->orderBy('number','ASC')->get();
+        $tabSaison = $serie->saisons()->orderBy('air_date', 'ASC')->get();
+        foreach ($tabSaison as $season) {
+            $tabEpisodes = $season->episodes()->orderBy('number', 'ASC')->get();
             $season['tabEpisodes'] = $tabEpisodes;
         }
 
         //var_dump($tabEpisodes);
         //var_dump($tabSaison[0]["tabEpisodes"]);
-        return $this->view->render($response, 'show.twig', Array("serie"=>$serie,"seasons"=>$tabSaison));
+        return $this->view->render($response, 'show.twig', Array("serie" => $serie, "seasons" => $tabSaison));
 
     }
 
@@ -67,7 +67,7 @@ final class HomeController
     {
         return $this->view->render($response, 'profile.twig');
     }
-	
+
     public function addUser(Request $request, Response $response, $args)
     {
         if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])) {
@@ -96,8 +96,8 @@ final class HomeController
             if (sizeof($errors) == 0) {
                 $username = filter_var($username, FILTER_SANITIZE_STRING);
                 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-                $password = password_hash($password, PASSWORD_DEFAULT, array(
-                    'cost' => 12,
+                $password = password_hash($password, PASSWORD_DEFAULT, Array(
+                    'cost' => 12
                 ));
 
                 $user = new \App\Models\User();
@@ -125,5 +125,36 @@ final class HomeController
             return $response->withRedirect($this->router->pathFor('homepage'));
 
         }
+    }
+
+    public function loginUser(Request $request, Response $response, $args)
+    {
+        if (isset($_POST["email"]) && isset($_POST["password"])) {
+            $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+            $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+            $user = User::where("email", $email)->get()->first();
+            //var_dump($user);
+            if (isset($user->id)) {
+                if (password_verify($password, $user->password)) {
+                    $_SESSION["uniqid"] = $user->id;
+                    $_SESSION["type"] = 'user';
+                    var_dump($_SESSION['uniqid']);
+                    return $response->withRedirect($this->router->pathFor('homepage'));
+
+                } else {
+                    $this->view->render($response, 'signin.twig', array('errors' => "error"));
+                }
+            } else {
+                $this->view->render($response, 'signin.twig', array('errors' => "error"));
+            }
+        } else {
+            $this->view->render($response, 'signin.twig', array('errors' => "error"));
+        }
+    }
+
+    public function logout(Request $request, Response $response, $args)
+    {
+        unset($_SESSION['uniqid']);
+        return $response->withRedirect($this->router->pathFor('homepage'));
     }
 }
