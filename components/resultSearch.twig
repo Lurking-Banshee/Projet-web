@@ -2,7 +2,7 @@
     <div class="row"></div>
     <div class="row sous-titre">
         <div class="card-panel col s12 m12 ">
-            <h5><i class="material-icons red-text">whatshot</i> Resultat : </h5>
+            <h5><i class="material-icons red-text">search</i> Résultats</h5>
         </div>
     </div>
     <div class="row">
@@ -25,6 +25,9 @@
                     </div>
                 </div>
             </div>
+		{% else %}
+			<span>Aucune série correspondant aux critères trouvée.</span>
+		
         {% endfor %}
     </div>
 </div>
