@@ -12,6 +12,8 @@ $app->post('/signup', 'App\Controllers\HomeController:addUser');
 
 $app->get('/signin', 'App\Controllers\HomeController:signin')->setName('signin');
 
+$app->post('/signin', 'App\Controllers\HomeController:loginUser');
+
 $app->get('/show/{id}', 'App\Controllers\HomeController:show')->setName('show');
 
 $app->get('/search/{id}', 'App\Controllers\HomeController:search')->setName('search');

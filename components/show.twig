@@ -15,38 +15,33 @@
 </div>
 <!-- block season -->
 
+
 {% for season in seasons %}
 
-<div class="row container section grey lighten-3">
-    <article>
-        <div class="col s5 ">
-            <div class="card horizontal">
-                <div class="card-image valign-wrapper">
-                    <img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
+<div class="row container section grey lighten-3 col l12">
+    <div class="card horizontal small">
+        <div class="card-image valign-wrapper">
+            <img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <h3 class="header">{{ season.name }}</h3>
+                <div class="chip">
+                    {{ season.air_date }}
                 </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <h3 class="header">{{ season.name }}</h3>
-                        <p>{{ season.overview }}</p>
-                        <p>Date de diffusion : {{ season.air_date }}</p>
-                    </div>
-                </div>
+                <p>{{ season.overview }}</p>
             </div>
         </div>
-        
-        <div class="col s7">
-            <ul class="collapsible" data-collapsible="accordion">
-                {% for episode in season.tabEpisodes %}
-                    <li>
-                        <div class="collapsible-header">Episode {{ episode.number }} : {{ episode.name }}<i
-                                    class="material-icons red-text darken-1 right">add</i></div>
-                        <div class="collapsible-body"><p class="white">{{ episode.overview }}</p></div>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </article>
+    </div> 
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for episode in season.tabEpisodes %}
+        <li>
+            <div class="collapsible-header"><b>Episode {{ episode.number }} :</b> {{ episode.name }}</div>
+			<i class="icone_ajout_episode material-icons red-text darken-1 right">add</i>
+            <div class="collapsible-body"><p class="white">{{ episode.overview }}</p></div>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 
 {% endfor %}
-
