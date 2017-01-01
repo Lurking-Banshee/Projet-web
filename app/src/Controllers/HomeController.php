@@ -140,14 +140,14 @@ final class HomeController
 
         if (isset($_POST['company'])) {
             $compagny = Companies::where('name', $_POST['company'])->get();
-            $tabSeries[$compagny->name] = $compagny[0]->series()->get();
-            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$compagny->name]));
+            $tabSeries[$compagny[0]->name] = $compagny[0]->series()->get();
+            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$compagny[0]->name]));
         }
 
         if (isset($_POST['creator'])) {
             $creator = Creators::where('name', $_POST['creator'])->get();
-            $tabSeries[$creator->name] = $creator[0]->series()->get();
-            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$creator->name]));
+            $tabSeries[$creator[0]->name] = $creator[0]->series()->get();
+            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$creator[0]->name]));
         }
 
         if (isset($_POST['name'])) {
