@@ -23,6 +23,10 @@ class Series extends Model
     public function saisons(){
         return $this->belongsToMany('\App\Models\Seasons',"seriesseasons","series_id","season_id");
     }
+
+
+
+
 }
 
 
