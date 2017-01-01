@@ -36,15 +36,11 @@
 <script>
     $(document).ready(function() {
         $('select').material_select();
-    });
-</script>
-<script>
-    $(document).ready(function () {
         $('.parallax').parallax();
-		$(".dropdown-button").dropdown();
+		$("#annuler").on('click', function(){
+			$("form").trigger("reset");
+		});
     });
-</script>
-<script>
 
     $('.dropdown-button').dropdown({
                 inDuration: 300,
