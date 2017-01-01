@@ -2,6 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\Compagnies;
+use App\Models\Companies;
+use App\Models\Creators;
+use App\Models\Genre;
+use App\Models\Genres;
 use App\Models\Seasons;
 use App\Models\Series;
 use phpDocumentor\Reflection\Types\Array_;
@@ -48,19 +53,17 @@ final class HomeController
         $serie = Series::find($args['id']);
         $tabSaison = $serie->saisons()->orderBy('air_date','ASC')->get();
         foreach ($tabSaison as $season ){
-            $tabEpisodes = $season->episodes()->get();
+            $tabEpisodes = $season->episodes()->orderBy('number','ASC')->get();
             $season['tabEpisodes'] = $tabEpisodes;
         }
 
-        //var_dump($tabEpisodes);
-        //var_dump($tabSaison[0]["tabEpisodes"]);
         return $this->view->render($response, 'show.twig', Array("serie"=>$serie,"seasons"=>$tabSaison));
 
     }
 
     public function search(Request $request, Response $response, $args)
     {
-        return $this->view->render($response, 'search.twig');
+        return $this->view->render($response, 'search.twig',Array("type"=>$args['id']));
     }
 
     public function profile(Request $request, Response $response, $args)
@@ -125,5 +128,36 @@ final class HomeController
             return $response->withRedirect($this->router->pathFor('homepage'));
 
         }
+    }
+
+
+    public function resultSearch(Request $request, Response $response, $args){
+        $tabSeries = Array();
+
+        if(isset($_POST['genre'])){
+            $genre = Genres::find($_POST['genre'] );
+            $tabSeries['genre'] = $genre->series()->get();
+            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$tabSeries['genre']));
+        }
+
+        if(isset($_POST['company'])){
+            $compagny = Companies::where('name',$_POST['company'])->get();
+            $tabSeries[$compagny->name] = $compagny[0]->series()->get();
+            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$tabSeries[$compagny->name]));
+        }
+
+        if(isset($_POST['creator'])){
+            $creator = Creators::where('name',$_POST['creator'])->get();
+            $tabSeries[$creator->name] = $creator[0]->series()->get();
+            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$tabSeries[$creator->name]));
+        }
+
+        if(isset($_POST['name'])){
+             $serie= Series::where('name',$_POST['name'])->get();
+
+            return $this->view->render($response, 'resultSearch.twig',Array("series"=>$serie));
+        }
+
+
     }
 }

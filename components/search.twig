@@ -3,46 +3,46 @@
         <div class="card-panel col s12 m12 l12">
             <form class="col s12 m12" method="post">
                 <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <input id="text" type="text" class="validate" name="name">
-                            <label for="text">Nom de la série</label>
-                        </div>
+
+                    {% if type==1 %}
+                    <div class="input-field col s12 m12 l12">
+                        <input type="text" class="validate" name="name">
+                        <label for="text">Nom de la série :</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <select multiple>
-								<option value="" disabled selected>Choose your option</option>
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</select>
-							<label>Genres de la série</label>
-                        </div>
+                    {%  elseif type==2 %}
+                    <div class="input-field col s12 m12 l12">
+                        <input type="text" class="validate" name="company">
+                        <label for="text">Production : </label>
                     </div>
-                    <div class="row">
-                        <div class="range-field col s12 m12 l12">
-                            <input id="period" type="range" name="period" min="1940" max="2030">
-                            <label for="period">Période de production</label>
-                        </div>
+                    {% elseif type==3 %}
+                    <div class="input-field col s12 m12 l12">
+                        <input type="text" class="validate" name="creator">
+                        <label for="text">Réalisateur :</label>
                     </div>
-                    <div class="row">
-						 <a id="annuler" class="waves-effect waves-light btn-flat .center-align col s1 m1 l1 offset-s1 offset-m1 offset-l1">Annuler</a>
-                        <button class="btn waves-effect waves-light red darken-1 col s8 m8 l8 offset-s1 offset-m1 offset-l1" type="submit"
+                    {% else %}
+                    <div class="input-field col s12">
+                        <select name="genre[]" >
+                            <option value="12">Adventure</option>
+                            <option value="14">Fantasy</option>
+                            <option value="16">Animation</option>
+                            <option value="18">Drama</option>
+                            <option value="10751">Family</option>
+                        </select>
+                        <label>Genre : </label>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="row">
+                    <a id="annuler" class="waves-effect waves-light btn-flat .center-align col s1 m1 l1 offset-s1 offset-m1 offset-l1">Annuler</a>
+                    <button class="btn waves-effect waves-light red darken-1 col s8 m8 l8 offset-s1 offset-m1 offset-l1" type="submit"
                                 name="rechercher">Rechercher
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    </button>
+                </div>
+            </form>
         </div>
+    </div>
 </div>
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$("#annuler").on('click', function(){
-			$("form").trigger("reset");
-		});
-	});
-</script>
