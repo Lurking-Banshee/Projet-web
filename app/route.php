@@ -14,7 +14,7 @@ $app->get('/signin', 'App\Controllers\HomeController:signin')->setName('signin')
 
 $app->get('/show/{id}', 'App\Controllers\HomeController:show')->setName('show');
 
-$app->get('/search', 'App\Controllers\HomeController:search')->setName('search');
+$app->get('/search/{name}', 'App\Controllers\HomeController:search')->setName('search');
 
 $app->get('/profile', 'App\Controllers\HomeController:profile')->setName('profile');
 

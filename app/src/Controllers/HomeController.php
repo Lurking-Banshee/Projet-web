@@ -60,7 +60,8 @@ final class HomeController
 
     public function search(Request $request, Response $response, $args)
     {
-        return $this->view->render($response, 'search.twig');
+		$resultats = Series::where('name','like', '%'.$args['name'].'%')->get();
+        return $this->view->render($response, 'search.twig', Array("resultats"=>$resultats));
     }
 
     public function profile(Request $request, Response $response, $args)
