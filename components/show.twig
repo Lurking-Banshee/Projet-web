@@ -36,8 +36,8 @@
     <ul class="collapsible" data-collapsible="accordion">
         {% for episode in season.tabEpisodes %}
         <li>
-            <div class="collapsible-header"><b>Episode {{ episode.number }} :</b> {{ episode.name }}<i
-                class="material-icons red-text darken-1 right">add</i></div>
+            <div class="collapsible-header"><b>Episode {{ episode.number }} :</b> {{ episode.name }}</div>
+			<i class="icone_ajout_episode material-icons red-text darken-1 right">add</i>
             <div class="collapsible-body"><p class="white">{{ episode.overview }}</p></div>
         </li>
         {% endfor %}
@@ -45,4 +45,3 @@
 </div>
 
 {% endfor %}
-
