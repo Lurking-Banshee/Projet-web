@@ -9,7 +9,7 @@
 				<div class="col s6 m6 l6">
 					<div class="card">
 					<div class="card-image"> <!-- La photo de profil -->
-					<img src="images/essai_profil.jpg" class="circle_responsive-img" > <!-- C'est pour que l'image soit ronde, la classe. -->
+					<img src="images/essai_profil.jpg"> <!-- C'est pour que l'image soit ronde, la classe. -->
 					</div>
 					</div>
 				</div>	
@@ -42,147 +42,66 @@
 			<div class="card-panel col s12 m12 l12 valign-wrapper"> <!-- Une boîte pour le titre, centrée verticalement -->
 					<h5><i class="material-icons red-text left">favorite</i>Vos séries préférées</h5>
 			</div>
+			<!-- Affichage des séries de l'utilisateur -->
 			
-			
-			<div class="row">      
-				<div class="col s12 m6 l3">
-					<div class="card sticky-action medium">
-						<div class="card-image waves-effect waves-block waves-light">
-							<img class="activator" src="https://image.tmdb.org/t/p/original/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg">
-						</div>
-						<div class="card-content">
-							<span class="card-title activator">Breaking Bad<i class="material-icons right">more_horiz</i></span>
-						</div>
-						<div class="card-reveal">
-							<span class="card-title grey-text text-darken-4">Breaking Bad<i class="material-icons right">close</i></span>
-							<p>Breaking Bad is an American crime drama television series created and produced by Vince Gilligan. Set and 
-							produced in Albuquerque, New Mexico, Breaking Bad is the story of Walter White, a struggling high school chemistry 
-							teacher who is diagnosed with inoperable lung cancer at the beginning of the series. He turns to a life of crime, 
-							producing and selling methamphetamine, in order to secure his family's financial future before he dies, teaming 
-							with his former student, Jesse Pinkman. Heavily serialize...(line truncated)...
-						</div>
-						<div class="card-action">
-							<a href="/show"><span class="red-text text-darken-1">Explorer</span></a>
-						</div>	
-					</div>
+			<div class="row">
+				<div class="row container section grey lighten-3 col l12">
+    <div class="card horizontal small">
+        <div class="card-image valign-wrapper"> <!-- Il faut mettre là l'image de la série -->
+			{% if season.poster_path is not empty %}
+				<img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
+			{% else %}
+				<img class="valign" src="http://www.ztackey.com/wp-content/uploads/2016/11/placeholder-1.jpg">
+			{% endif %}
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+            	<h3 class="header"> Titre de la série </h3> <!-- ESSAI TITRE -->
+                <h3 class="header">{{ season.name }}</h3> <!-- Là le nom de la série -->
+				<!-- Pas besoin de mettre les tags pour la diffusion des séries -->
+                <p>{{ season.overview }}</p>
+            </div>
+        </div>
+    </div> 
+    <ul class="collapsible" data-collapsible="accordion">
+		<li>
+			<div class="collapsible-header">Saison 1</div>
+			<div class="collapsible-body">
+				<div class="collection">
+					<a class="collection-item">Episode 1</a>
+					<a class="collection-item">Episode 2</a>
+					<a class="collection-item">Episode 3</a>
+					<a class="collection-item">Episode 4</a>
+					<a class="collection-item">Episode 5</a>
 				</div>
-				<div class="col s12 m6 l3">
-					<div class="card sticky-action medium">
-						<div class="card-image waves-effect waves-block waves-light">
-							<img class="activator" src="https://image.tmdb.org/t/p/original/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg">
-						</div>
-						<div class="card-content">
-							<span class="card-title activator">Breaking Bad<i class="material-icons right">more_horiz</i></span>
-						</div>
-						<div class="card-reveal">
-							<span class="card-title grey-text text-darken-4">Breaking Bad<i class="material-icons right">close</i></span>
-							<p>Breaking Bad is an American crime drama television series created and produced by Vince Gilligan. Set and 
-							produced in Albuquerque, New Mexico, Breaking Bad is the story of Walter White, a struggling high school chemistry 
-							teacher who is diagnosed with inoperable lung cancer at the beginning of the series. He turns to a life of crime, 
-							producing and selling methamphetamine, in order to secure his family's financial future before he dies, teaming 
-							with his former student, Jesse Pinkman. Heavily serialize...(line truncated)...
-						</div>
-						<div class="card-action">
-							<a href="/show"><span class="red-text text-darken-1">Explorer</span></a>
-						</div>	
-					</div>
-				</div>
-				<div class="col s12 m6 l3">
-					<div class="card sticky-action medium">
-						<div class="card-image waves-effect waves-block waves-light">
-							<img class="activator" src="https://image.tmdb.org/t/p/original/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg">
-						</div>
-						<div class="card-content">
-							<span class="card-title activator">Breaking Bad<i class="material-icons right">more_horiz</i></span>
-						</div>
-						<div class="card-reveal">
-							<span class="card-title grey-text text-darken-4">Breaking Bad<i class="material-icons right">close</i></span>
-							<p>Breaking Bad is an American crime drama television series created and produced by Vince Gilligan. Set and 
-							produced in Albuquerque, New Mexico, Breaking Bad is the story of Walter White, a struggling high school chemistry 
-							teacher who is diagnosed with inoperable lung cancer at the beginning of the series. He turns to a life of crime, 
-							producing and selling methamphetamine, in order to secure his family's financial future before he dies, teaming 
-							with his former student, Jesse Pinkman. Heavily serialize...(line truncated)...
-						</div>
-						<div class="card-action">
-							<a href="/show"><span class="red-text text-darken-1">Explorer</span></a>
-						</div>	
-					</div>
-				</div>
-				<div class="col s12 m6 l3">
-					<div class="card sticky-action medium">
-						<div class="card-image waves-effect waves-block waves-light">
-							<img class="activator" src="https://image.tmdb.org/t/p/original/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg">
-						</div>
-						<div class="card-content">
-							<span class="card-title activator">Breaking Bad<i class="material-icons right">more_horiz</i></span>
-						</div>
-						<div class="card-reveal">
-							<span class="card-title grey-text text-darken-4">Breaking Bad<i class="material-icons right">close</i></span>
-							<p>Breaking Bad is an American crime drama television series created and produced by Vince Gilligan. Set and 
-							produced in Albuquerque, New Mexico, Breaking Bad is the story of Walter White, a struggling high school chemistry 
-							teacher who is diagnosed with inoperable lung cancer at the beginning of the series. He turns to a life of crime, 
-							producing and selling methamphetamine, in order to secure his family's financial future before he dies, teaming 
-							with his former student, Jesse Pinkman. Heavily serialize...(line truncated)...
-						</div>
-						<div class="card-action">
-							<a href="/show"><span class="red-text text-darken-1">Explorer</span></a>
-						</div>	
-					</div>
-				</div>
-				
-				
-				<div class="col s12 m6 l3">	
-					<div class="card sticky-action medium">
-					<div class="card-image waves-effect waves-block waves-light">
-							<img class="activator" src="https://image.tmdb.org/t/p/original/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg">
-					</div>
-					<div class="card-content">
-						<span class="card-title activator">Titre de la série</span>
-						<ul class="collapsible" data-collapsible="accordion">
-							<li>
-								<div class="collapsible-header">Saison 1</div>
-								<div class="collapsible-body">
-									<div class="collection">
-										<a class="collection-item">Episode 1</a>
-										<a class="collection-item">Episode 2</a>
-										<a class="collection-item">Episode 3</a>
-										<a class="collection-item">Episode 4</a>
-										<a class="collection-item">Episode 5</a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="collapsible-header">Saison 2</div>
-								<div class="collapsible-body">
-									<div class="collection">
-										<a class="collection-item">Episode 1</a>
-										<a class="collection-item">Episode 2</a>
-										<a class="collection-item">Episode 3</a>
-										<a class="collection-item">Episode 4</a>
-										<a class="collection-item">Episode 5</a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="collapsible-header">Saison 3</div>
-								<div class="collapsible-body">
-									<div class="collection">
-										<a class="collection-item">Episode 1</a>
-										<a class="collection-item">Episode 2</a>
-										<a class="collection-item">Episode 3</a>
-										<a class="collection-item">Episode 4</a>
-										<a class="collection-item">Episode 5</a>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-					</div>
-				</div>
-						
-						
 			</div>
-			
-	</div>
+		</li>
+		<li>
+			<div class="collapsible-header">Saison 2</div>
+			<div class="collapsible-body">
+				<div class="collection">
+					<a class="collection-item">Episode 1</a>
+					<a class="collection-item">Episode 2</a>
+					<a class="collection-item">Episode 3</a>
+					<a class="collection-item">Episode 4</a>
+					<a class="collection-item">Episode 5</a>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="collapsible-header">Saison 3</div>
+			<div class="collapsible-body">
+				<div class="collection">
+					<a class="collection-item">Episode 1</a>
+					<a class="collection-item">Episode 2</a>
+					<a class="collection-item">Episode 3</a>
+					<a class="collection-item">Episode 4</a>
+					<a class="collection-item">Episode 5</a>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>      
+</div>
 		
 </div>
