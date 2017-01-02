@@ -40,9 +40,11 @@
         <div class="card-stacked">
             <div class="card-content">
                 <h3 class="header">{{ season.name }}</h3>
-                <div class="chip">
-                    {{ season.air_date }}
-                </div>
+				{% if season.air_date is not empty %}
+					<div class="chip">
+						{{ season.air_date }}
+					</div>
+				{% endif %}
                 <p>{{ season.overview }}</p>
             </div>
         </div>
