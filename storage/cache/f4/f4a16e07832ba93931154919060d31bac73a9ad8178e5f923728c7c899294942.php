@@ -69,15 +69,38 @@ class __TwigTemplate_f7a7e49997c0185a7612c49f3c350c8bd6c334920546b1d928f00780e34
         }
         if (!$context['_iterated']) {
             // line 29
-            echo "\t\t\t<span>Aucune série correspondant aux critères trouvée.</span>
-\t\t
+            echo "\t\t\t<span>Aucune série correspondant aux critères trouvée.</span>\t
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['serie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 32
-        echo "    </div>
+        // line 31
+        echo "\t</div>
+\t
+\t";
+        // line 33
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["series"]) ? $context["series"] : null)), "html", null, true);
+        echo "
+\t";
+        // line 34
+        if ((twig_length_filter($this->env, (isset($context["series"]) ? $context["series"] : null)) > 20)) {
+            // line 35
+            echo "\t<div class=\"row\">
+\t\t<ul class=\"pagination center-align\">
+\t\t\t<li class=\"disabled\"><a href=\"#!\"><i class=\"material-icons\">chevron_left</i></a></li>
+\t\t\t<li class=\"active\"><a href=\"#!\">1</a></li>
+\t\t\t<li class=\"waves-effect\"><a href=\"#!\">2</a></li>
+\t\t\t<li class=\"waves-effect\"><a href=\"#!\">3</a></li>
+\t\t\t<li class=\"waves-effect\"><a href=\"#!\">4</a></li>
+\t\t\t<li class=\"waves-effect\"><a href=\"#!\">5</a></li>
+\t\t\t<li class=\"waves-effect\"><a href=\"#!\"><i class=\"material-icons\">chevron_right</i></a></li>
+\t\t  </ul>       
+    </div>
+\t";
+        }
+        // line 47
+        echo "\t
 </div>";
     }
 
@@ -93,7 +116,7 @@ class __TwigTemplate_f7a7e49997c0185a7612c49f3c350c8bd6c334920546b1d928f00780e34
 
     public function getDebugInfo()
     {
-        return array (  80 => 32,  72 => 29,  61 => 23,  55 => 20,  51 => 19,  45 => 16,  39 => 13,  34 => 10,  29 => 9,  19 => 1,);
+        return array (  103 => 47,  89 => 35,  87 => 34,  83 => 33,  79 => 31,  72 => 29,  61 => 23,  55 => 20,  51 => 19,  45 => 16,  39 => 13,  34 => 10,  29 => 9,  19 => 1,);
     }
 }
 /* <div class="container">*/
@@ -124,8 +147,23 @@ class __TwigTemplate_f7a7e49997c0185a7612c49f3c350c8bd6c334920546b1d928f00780e34
 /*                 </div>*/
 /*             </div>*/
 /* 		{% else %}*/
-/* 			<span>Aucune série correspondant aux critères trouvée.</span>*/
-/* 		*/
+/* 			<span>Aucune série correspondant aux critères trouvée.</span>	*/
 /*         {% endfor %}*/
+/* 	</div>*/
+/* 	*/
+/* 	{{series|length}}*/
+/* 	{% if series|length > 20 %}*/
+/* 	<div class="row">*/
+/* 		<ul class="pagination center-align">*/
+/* 			<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>*/
+/* 			<li class="active"><a href="#!">1</a></li>*/
+/* 			<li class="waves-effect"><a href="#!">2</a></li>*/
+/* 			<li class="waves-effect"><a href="#!">3</a></li>*/
+/* 			<li class="waves-effect"><a href="#!">4</a></li>*/
+/* 			<li class="waves-effect"><a href="#!">5</a></li>*/
+/* 			<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>*/
+/* 		  </ul>       */
 /*     </div>*/
+/* 	{% endif %}*/
+/* 	*/
 /* </div>*/
