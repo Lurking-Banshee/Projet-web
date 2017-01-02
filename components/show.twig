@@ -1,7 +1,11 @@
 
 <!-- Block serie -->
 <div class="parallax-container">
-    <div class="parallax"><img src="https://image.tmdb.org/t/p/original{{ serie.backdrop_path }}"></div>
+	{% if serie.backdrop_path is not empty %}
+		<div class="parallax"><img src="https://image.tmdb.org/t/p/original{{ serie.backdrop_path }}"></div>
+	{% else %}
+		<div class="parallax"><img src="https://mave.me/img/projects/full_placeholder.png"></div>
+	{% endif %}
 </div>
 <div class="section white">
     <div class="row container">
@@ -27,7 +31,11 @@
 <div class="row container section grey lighten-3 col l12">
     <div class="card horizontal small">
         <div class="card-image valign-wrapper">
-            <img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
+			{% if season.poster_path is not empty %}
+				<img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
+			{% else %}
+				<img class="valign" src="http://www.ztackey.com/wp-content/uploads/2016/11/placeholder-1.jpg">
+			{% endif %}
         </div>
         <div class="card-stacked">
             <div class="card-content">
