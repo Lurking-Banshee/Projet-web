@@ -17,19 +17,6 @@
 
 <!--Bandeau sup -->
 
-<!-- Drop -->
-<ul id="dropdown1" class="dropdown-content">
-    <li><a href="/search/1">Par nom</a></li>
-    <li class="divider"></li>
-    <li><a href="/search/2">Par production</a></li>
-    <li class="divider"></li>
-    <li><a href="/search/3">Par réalisateur</a></li>
-    <li class="divider"></li>
-    <li><a href="/search/4">Par genre</a></li>
-</ul>
-<!-- fin drop-->
-
-
 <! contenu du dropdown-->
 <ul id="dropdown1" class="dropdown-content">
   <li><a id="dropdown_profil" href="/profile"><img id="dropdown_profil_img" src="images/essai_profil.jpg" class="circle left">Profil</a></li>
@@ -46,8 +33,7 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
 
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
-            <i class="material-icons">search</i></a></li>
+            <li><a href="/search"><i class="material-icons">search</i></a></li>
 			{% if true %}
 				<li><a href="/signin">Connexion</a></li>
 				<li><a href="/signup">Inscription</a></li>

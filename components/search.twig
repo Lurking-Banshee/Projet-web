@@ -4,24 +4,21 @@
             <form class="col s12 m12" method="post">
                 <div class="row">
 
-                    {% if type==1 %}
                     <div class="input-field col s12 m12 l12">
                         <input type="text" class="validate" name="name">
                         <label for="text">Nom de la série :</label>
                     </div>
-                    {%  elseif type==2 %}
                     <div class="input-field col s12 m12 l12">
                         <input type="text" class="validate" name="company">
                         <label for="text">Production : </label>
                     </div>
-                    {% elseif type==3 %}
                     <div class="input-field col s12 m12 l12">
                         <input type="text" class="validate" name="creator">
                         <label for="text">Réalisateur :</label>
                     </div>
-                    {% else %}
                     <div class="input-field col s12">
                         <select name="genre[]" >
+							<option value="" disabled selected>Choose your option</option>
                             <option value="12">Adventure</option>
                             <option value="14">Fantasy</option>
                             <option value="16">Animation</option>
@@ -30,7 +27,6 @@
                         </select>
                         <label>Genre : </label>
                     </div>
-                    {% endif %}
                 </div>
 
                 <div class="row">

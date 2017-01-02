@@ -61,7 +61,7 @@ final class HomeController
 
     public function search(Request $request, Response $response, $args)
     {
-        return $this->view->render($response, 'search.twig',Array("type"=>$args['id']));
+        return $this->view->render($response, 'search.twig',Array("type"=>$args));
     }
 
     public function profile(Request $request, Response $response, $args)
@@ -128,34 +128,52 @@ final class HomeController
         }
     }
 
+	
     public function resultSearch(Request $request, Response $response, $args)
     {
-        $tabSeries = Array();
+        
+		
+		
+        $tabSeries = Series::where('name','like', '%'.$_POST['name'].'%')->get();
 
-        if (isset($_POST['genre'])) {
+		
+        if (isset($_POST['genre']) && !empty($_POST['genre'])) {
             $genre = Genres::find($_POST['genre']);
-            $tabSeries['genre'] = $genre[0]->series()->get();
-            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries['genre']));
+			$tabSeries_genre = collect();
+			foreach($genre as $it_genre){
+				foreach($it_genre->series()->get() as $it_serie_genre){
+					$tabSeries_genre->push($it_serie_genre);
+				}
+			}
+			$tabSeries = $tabSeries->intersect($tabSeries_genre);
         }
 
-        if (isset($_POST['company'])) {
-            $compagny = Companies::where('name','like', '%'.$_POST['company'].'%')->get();
-            $tabSeries[$compagny[0]->name] = $compagny[0]->series()->get();
-            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$compagny[0]->name]));
+        if (isset($_POST['company']) && !empty($_POST['company'])) {
+            $company = Companies::where('name','like', '%'.$_POST['company'].'%')->get();
+			$tabSeries_company = collect();
+			foreach($company as $it_company){
+				foreach($it_company->series()->get() as $it_serie_company){
+					$tabSeries_company->push($it_serie_company);
+				}
+			}
+			$tabSeries = $tabSeries->intersect($tabSeries_company);
         }
 
-        if (isset($_POST['creator'])) {
+        if (isset($_POST['creator']) && !empty($_POST['creator'])) {
             $creator = Creators::where('name','like', '%'.$_POST['creator'].'%')->get();
-            $tabSeries[$creator[0]->name] = $creator[0]->series()->get();
-            return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries[$creator[0]->name]));
+			$tabSeries_creator = collect();
+			foreach($creator as $it_creator){
+				foreach($it_creator->series()->get() as $it_serie_creator){
+					$tabSeries_creator->push($it_serie_creator);
+				}
+			}
+			$tabSeries = $tabSeries->intersect($tabSeries_creator);
         }
 
-        if (isset($_POST['name'])) {
-            $serie = Series::where('name','like', '%'.$_POST['name'].'%')->get();
-
-            return $this->view->render($response, 'resultSearch.twig', Array("series" => $serie));
-        }
+        return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries));
     }
+	
+	
     public function loginUser(Request $request, Response $response, $args)
     {
         if (isset($_POST["email"]) && isset($_POST["password"])) {
