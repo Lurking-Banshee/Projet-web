@@ -57,7 +57,6 @@ final class HomeController
             $season['tabEpisodes'] = $tabEpisodes;
         }
 		$tabGenres = $serie->genres()->get();
-		var_dump($tabGenres);
         return $this->view->render($response, 'show.twig', Array("serie"=>$serie,"seasons"=>$tabSaison,"genres"=>$tabGenres));
     }
 
