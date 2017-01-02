@@ -17,8 +17,11 @@ $app->post('/signin', 'App\Controllers\HomeController:loginUser');
 $app->get('/show/{id}', 'App\Controllers\HomeController:show')->setName('show');
 
 $app->get('/search', 'App\Controllers\HomeController:search')->setName('search');
+
 $app->post('/search', 'App\Controllers\HomeController:resultSearch')->setName('resultSearch');
 
 $app->get('/profile', 'App\Controllers\HomeController:profile')->setName('profile');
 
 $app->get('/users', 'App\Controllers\UserController:dispatch')->setName('userpage');
+
+$app->get('/logout', 'App\Controllers\HomeController:logout')->setName('logout');

@@ -10,15 +10,17 @@ $app->add(function ($request, $response, $next) {
 
 $app->add(function($request, $response, $next){
     if(!(starts_with($request->getUri()->getPath(),'/ajax'))){
-        $this->view->render($response,'header.twig');
-
+        if(isset($_SESSION['uniqid'])){
+            $connecter = 1;
+        }else{
+            $connecter = 2;
+        }
+        $this->view->render($response,'header.twig',Array("connecter"=>$connecter));
         $response = $next($request,$response);
         $this->view->render($response,'footer.twig');
         return $response;
     }else{
-
         $response = $next($request,$response);
         return $response;
-
     }
 });
