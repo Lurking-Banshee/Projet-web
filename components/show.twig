@@ -12,12 +12,16 @@
 		{% endif %}
         <h2 class="header">{{ serie.name }}</h2>
         <p class="grey-text text-darken-3 lighten-3">{{ serie.overview }}</p>
+		{% for genre in genres %}
+		<div class="chip">
+			{{genre.name}}
+        </div>
+		{% endfor %}
 
     </div>
 </div>
-<!-- block season -->
 
-
+<!-- Block season -->
 {% for season in seasons %}
 
 <div class="row container section grey lighten-3 col l12">

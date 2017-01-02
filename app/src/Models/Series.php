@@ -24,7 +24,9 @@ class Series extends Model
         return $this->belongsToMany('\App\Models\Seasons',"seriesseasons","series_id","season_id");
     }
 
-
+	public function genres(){
+        return $this->belongsToMany('\App\Models\Genres',"seriesgenres","series_id","genre_id");
+    }
 
 
 }

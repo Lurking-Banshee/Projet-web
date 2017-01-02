@@ -56,7 +56,9 @@ final class HomeController
             $tabEpisodes = $season->episodes()->orderBy('number','ASC')->get();
             $season['tabEpisodes'] = $tabEpisodes;
         }
-        return $this->view->render($response, 'show.twig', Array("serie"=>$serie,"seasons"=>$tabSaison));
+		$tabGenres = $serie->genres()->get();
+		var_dump($tabGenres);
+        return $this->view->render($response, 'show.twig', Array("serie"=>$serie,"seasons"=>$tabSaison,"genres"=>$tabGenres));
     }
 
     public function search(Request $request, Response $response, $args)
