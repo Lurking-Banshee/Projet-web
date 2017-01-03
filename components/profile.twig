@@ -4,38 +4,25 @@
                 <h5><i class="material-icons red-text left">account_circle</i>Votre profil</h5>
             </div>
 			
-            <div class="row"> <!-- Et une boîte pour les informations personnelles -->
-              
-				<div class="col s6 m6 l6">
-					<div class="card">
-					<div class="card-image"> <!-- La photo de profil -->
-					<img src="images/essai_profil.jpg"> <!-- C'est pour que l'image soit ronde, la classe. -->
-					</div>
-					</div>
-				</div>	
-				
-				<div class="col s6 m6 l6">	
+            <div class="row"> <!-- Et une boîte pour les informations personnelles -->			
+				<div class="col s12 m12 l12">	
 					<div class="card-content"> <!-- Le contenu de la carte. -->
-					<ul class="collection z-depth-1">
-						<li class="collection-item">
-							<div class="row">
-							<div class="col s5 grey-text darken-1"> Votre pseudo </div>
-							<div class="col s7 grey-text text-darken-4 right-align">{{user.name}}</div>
-							</div>
-						</li>
-						<li class="collection-item">
-							<div class="row">
-							<div class="col s5 grey-text darken-1"> Votre adresse mail </div>
-							<div class="col s7 grey-text text-darken-4 right-align">{{user.email}}</div>
-							</div>
-						</li>
-					</ul>
-							<button class="btn waves-effect waves-light red darken-1 col s10 m10 l12" name="action"> 
-							<i class="material-icons white-text left">mode_edit</i> Modifier 
-							</button>
+						<ul class="collection z-depth-1">
+							<li class="collection-item">
+								<div class="row">
+									<div class="col s5 grey-text darken-1"> Votre pseudo </div>
+									<div class="col s7 grey-text text-darken-4 right-align">{{user.name}}</div>
+								</div>
+							</li>
+							<li class="collection-item">
+								<div class="row">
+									<div class="col s5 grey-text darken-1"> Votre adresse mail </div>
+									<div class="col s7 grey-text text-darken-4 right-align">{{user.email}}</div>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>  
-
             </div>
 			
         

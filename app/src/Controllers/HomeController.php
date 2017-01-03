@@ -80,7 +80,13 @@ final class HomeController
         $user = User::find($_SESSION['uniqid']);
         return $this->view->render($response, 'profile.twig', array('user' => $user));
     }
-
+	
+	public function addEpisode(Request $request, Response $response, $args)
+	{
+		
+        
+	}
+	
     public function addUser(Request $request, Response $response, $args)
     {
         if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])) {
