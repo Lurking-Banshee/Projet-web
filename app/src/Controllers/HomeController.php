@@ -35,6 +35,7 @@ final class HomeController
         $this->logger->info("Home page action dispatched");
         $tabNouv = Series::orderBy('first_air_date', 'DESC')->take(4)->get();
         $tabTend = Series::orderBy('popularity', 'DESC')->take(4)->get();
+		$tabReco = collect();
         if(isset($_SESSION['uniqid'])){
 			$tabReco = Series::orderBy('name', 'DESC')->take(4)->get();
             $connecter = 1;
