@@ -1,4 +1,6 @@
 <div class="container"> <!-- Contient toute la page. -->
+	<div class="row"></div>
+	
     <div class="row"> <!-- Contient une ligne. -->
         <div class="card-panel col s12 m12 l12" class="valign-wrapper"> <!-- Une boîte pour le titre, centrée verticalement -->
             <h5><i class="material-icons red-text left">account_circle</i>Votre profil</h5>
@@ -28,7 +30,7 @@
     
 	<div class="row">
 		<div class="card-panel col s12 m12 l12 valign-wrapper"> <!-- Une boîte pour le titre, centrée verticalement -->
-			<h5><i class="material-icons red-text left">favorite</i>Vos séries préférées</h5>
+			<h5><i class="material-icons red-text left">favorite</i>Vos séries visionnées</h5>
 		</div>
 		
 		<!-- Affichage des séries de l'utilisateur -->	
@@ -45,51 +47,21 @@
 				<div class="card-stacked">
 					<div class="card-content">
 						<h3 class="header"> Titre de la série </h3> <!-- ESSAI TITRE -->
-						<h3 class="header">{{ season.name }}</h3> <!-- Là le nom de la série -->
-						<!-- Pas besoin de mettre les tags pour la diffusion des séries -->
-						<p>{{ season.overview }}</p>
+						<p>description série</p>
 					</div>
 				</div>
-			</div> 
-    
+			</div>    
 			<ul class="collapsible" data-collapsible="accordion">
 				<li>
 					<div class="collapsible-header">Saison 1</div>
 					<div class="collapsible-body">
 						<div class="collection">
-							<a class="collection-item">Episode 1</a>
-							<a class="collection-item">Episode 2</a>
-							<a class="collection-item">Episode 3</a>
-							<a class="collection-item">Episode 4</a>
-							<a class="collection-item">Episode 5</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="collapsible-header">Saison 2</div>
-					<div class="collapsible-body">
-						<div class="collection">
-							<a class="collection-item">Episode 1</a>
-							<a class="collection-item">Episode 2</a>
-							<a class="collection-item">Episode 3</a>
-							<a class="collection-item">Episode 4</a>
-							<a class="collection-item">Episode 5</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="collapsible-header">Saison 3</div>
-					<div class="collapsible-body">
-						<div class="collection">
-							<a class="collection-item">Episode 1</a>
-							<a class="collection-item">Episode 2</a>
-							<a class="collection-item">Episode 3</a>
-							<a class="collection-item">Episode 4</a>
-							<a class="collection-item">Episode 5</a>
+							<a class="collection-item"><b>Episode :</b> nom episode</a><a href="/"><i class="icone_ajout_episode material-icons grey-text darken-1 right">clear</i></a>
 						</div>
 					</div>
 				</li>
 			</ul>
-		</div> 
+		</div>
+		
 	</div>
 </div>
