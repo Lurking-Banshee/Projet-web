@@ -83,7 +83,11 @@ final class HomeController
             $password = $_POST['password'];
 
             $errors = array();
-
+			
+			if($username=="" or $email=="" or $password==""){
+				array_push($errors, "Veuillez remplir tous les champs");
+			}
+			
             if ($username != filter_var($username, FILTER_SANITIZE_STRING)) {
                 array_push($errors, "Nom invalide, merci de corriger");
             }
