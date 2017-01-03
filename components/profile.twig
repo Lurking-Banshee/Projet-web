@@ -30,27 +30,14 @@
             <h5><i class="material-icons red-text left">playlist_add_check</i>Vos séries visionnées</h5>
         </div>
     </div>
-    <div class="card horizontal small">
-        <div class="card-image valign-wrapper">
-			{% if season.poster_path is not empty %}
-				<img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
-			{% else %}
-				<img class="valign" src="http://www.ztackey.com/wp-content/uploads/2016/11/placeholder-1.jpg">
-			{% endif %}
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <h3 class="header">Titre de la série</h3>
-                <p>description serie</p>
-            </div>
-        </div>
-    </div> 
     <ul class="collapsible" data-collapsible="accordion">
 		<li>
-			<div class="collapsible-header">Saison 1</div>
+			<div class="collapsible-header">Liste des épisodes</div>
 			<div class="collapsible-body">
 				<ul class="collection">
-					<li class="collection-item"><b>Episode :</b> nom episode</li><a href="/"><i class="icone_ajout_episode material-icons grey-text darken-1 right">clear</i></a>
+                    {% for episode in tabEpisodes %}
+					<li class="collection-item"><b>Episode {{ episode.number }} : </b>{{ episode.name }}</li><a href="/"><i class="icone_ajout_episode material-icons grey-text darken-1 right">clear</i></a>
+                    {% endfor %}
 				</ul>
 			</div>
 		</li>

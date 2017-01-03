@@ -79,7 +79,8 @@ final class HomeController
     public function profile(Request $request, Response $response, $args)
     {
         $user = User::find($_SESSION['uniqid']);
-        return $this->view->render($response, 'profile.twig', array('user' => $user));
+        $tabEpisodes = $user->episode()->get();
+        return $this->view->render($response, 'profile.twig', array('user' => $user, 'tabEpisodes' => $tabEpisodes));
     }
 	
     public function addUser(Request $request, Response $response, $args)
