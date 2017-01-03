@@ -40,6 +40,7 @@ final class HomeController
             $connecter = 2;
         }
         $this->view->render($response, 'homepage.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend, "connecter"=>$connecter));
+		$this->view->render($response, 'show.twig', array("connecter"=>$connecter));
 
         return $response;
     }

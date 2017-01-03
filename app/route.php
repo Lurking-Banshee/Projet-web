@@ -25,3 +25,5 @@ $app->get('/profile', 'App\Controllers\HomeController:profile')->setName('profil
 $app->get('/users', 'App\Controllers\UserController:dispatch')->setName('userpage');
 
 $app->get('/logout', 'App\Controllers\HomeController:logout')->setName('logout');
+
+$app->get('/add', 'App\Controllers\HomeController:addEpisode')->setName('addEpisode');
