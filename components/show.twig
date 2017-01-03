@@ -14,7 +14,8 @@
             <div class="determinate red darken-1" style="width: 70%"></div>
         </div>
 		{% endif %}
-        <h2 class="header">{{ serie.name }}</h2>
+		<div class="btn red right"><i class="material-icons left">star</i>{{ serie.popularity|round }}</div>
+        <h2 class="header">{{ serie.name }}</h2> 
         <p class="grey-text text-darken-3 lighten-3">{{ serie.overview }}</p>
 		{% for genre in genres %}
 		<div class="chip">
