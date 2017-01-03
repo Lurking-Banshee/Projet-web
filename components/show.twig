@@ -53,7 +53,7 @@
         {% for episode in season.tabEpisodes %}
         <li>
             <div class="collapsible-header"><b>Episode {{ episode.number }} :</b> {{ episode.name }}</div>
-            {% if connecter == 2 %}<i class="icone_ajout_episode material-icons red-text darken-1 right">add</i>{% endif %} <!--Affiche que si utilisateur connecte-->          
+            {% if true %}<i class="icone_ajout_episode material-icons red-text darken-1 right">add</i>{% endif %} <!--Affiche que si utilisateur connecte-->          
 			{% if episode.overview is not empty %}
 				<div class="collapsible-body"><p class="white">{{ episode.overview }}</p></div>
 			{% endif %}
