@@ -19,6 +19,11 @@ class Episodes extends Model
     public $timestamps = false;
     public $incrementing = false;
 
+    public function user(){
+
+        return $this->belongsToMany('App\Models\User','usersepisodes','episode_id','user_id');
+
+    }
     /**
     public function saisons(){
         return $this->belongsToMany('\App\Models\Seasons',"seriesseasons","series_id","season_id");

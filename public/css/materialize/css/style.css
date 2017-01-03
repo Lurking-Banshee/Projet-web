@@ -48,3 +48,7 @@ input[type="search"] {
 	margin-top:-35px;
 	margin-right:25px;
 }
+
+.addEpisode {
+    cursor: pointer;
+}

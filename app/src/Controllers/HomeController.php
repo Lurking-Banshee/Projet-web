@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Compagnies;
 use App\Models\Companies;
 use App\Models\Creators;
+use App\Models\Episodes;
 use App\Models\Genre;
 use App\Models\Genres;
 use App\Models\Seasons;
@@ -80,12 +81,6 @@ final class HomeController
         $user = User::find($_SESSION['uniqid']);
         return $this->view->render($response, 'profile.twig', array('user' => $user));
     }
-	
-	public function addEpisode(Request $request, Response $response, $args)
-	{
-		
-        
-	}
 	
     public function addUser(Request $request, Response $response, $args)
     {
@@ -194,7 +189,6 @@ final class HomeController
         return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries));
     }
 
-
     public function loginUser(Request $request, Response $response, $args)
     {
         if (isset($_POST["email"]) && isset($_POST["password"])) {
@@ -208,7 +202,6 @@ final class HomeController
                     $_SESSION["type"] = 'user';
                     var_dump($_SESSION['uniqid']);
                     return $response->withRedirect($this->router->pathFor('homepage'));
-
                 } else {
                     $this->view->render($response, 'signin.twig', array('errors' => "error"));
                 }
