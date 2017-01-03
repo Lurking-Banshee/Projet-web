@@ -1,67 +1,59 @@
-<div class="container"> <!-- Contient toute la page. -->
-	<div class="row"></div>
-	
-    <div class="row"> <!-- Contient une ligne. -->
-        <div class="card-panel col s12 m12 l12" class="valign-wrapper"> <!-- Une boîte pour le titre, centrée verticalement -->
+<div class="row container section grey lighten-3 col s12 m12 l12">
+
+
+	<div class="row sous-titre">
+        <div class="card-panel col s12 m12 ">
             <h5><i class="material-icons red-text left">account_circle</i>Votre profil</h5>
-        </div>
-			
-        <div class="row"> <!-- Et une boîte pour les informations personnelles -->			
-			<div class="col s12 m12 l12">	
-				<div class="card-content"> <!-- Le contenu de la carte. -->
-					<ul class="collection z-depth-1">
-						<li class="collection-item">
-							<div class="row">
-								<div class="col s5 grey-text darken-1"> Votre pseudo </div>
-								<div class="col s7 grey-text text-darken-4 right-align">{{user.name}}</div>
-							</div>
-						</li>
-						<li class="collection-item">
-							<div class="row">
-								<div class="col s5 grey-text darken-1"> Votre adresse mail </div>
-								<div class="col s7 grey-text text-darken-4 right-align">{{user.email}}</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>  
-        </div>
-	</div>		
-    
-	<div class="row">
-		<div class="card-panel col s12 m12 l12 valign-wrapper"> <!-- Une boîte pour le titre, centrée verticalement -->
-			<h5><i class="material-icons red-text left">favorite</i>Vos séries visionnées</h5>
 		</div>
-		
-		<!-- Affichage des séries de l'utilisateur -->	
 		<div class="row">
-			<div class="container section grey lighten-3 col s12 m12 l12">
-				<div class="card horizontal small">
-					<div class="card-image valign-wrapper"> <!-- Il faut mettre là l'image de la série -->
-					{% if season.poster_path is not empty %}
-						<img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
-					{% else %}
-						<img class="valign" src="http://www.ztackey.com/wp-content/uploads/2016/11/placeholder-1.jpg">
-					{% endif %}
-				</div>
-				<div class="card-stacked">
-					<div class="card-content">
-						<h3 class="header"> Titre de la série </h3> <!-- ESSAI TITRE -->
-						<p>description série</p>
-					</div>
-				</div>
-			</div>    
-			<ul class="collapsible" data-collapsible="accordion">
-				<li>
-					<div class="collapsible-header">Saison 1</div>
-					<div class="collapsible-body">
-						<div class="collection">
-							<a class="collection-item"><b>Episode :</b> nom episode</a><a href="/"><i class="icone_ajout_episode material-icons grey-text darken-1 right">clear</i></a>
+			<div class="card-content col s12 m12 l12"> <!-- Le contenu de la carte. -->
+				<ul class="collection z-depth-1">
+					<li class="collection-item">
+						<div class="row">
+							<div class="col s5 grey-text darken-1"> Votre pseudo </div>
+							<div class="col s7 grey-text text-darken-4 right-align">{{user.name}}</div>
 						</div>
-					</div>
-				</li>
-			</ul>
+					</li>
+					<li class="collection-item">
+						<div class="row">
+							<div class="col s5 grey-text darken-1"> Votre adresse mail </div>
+							<div class="col s7 grey-text text-darken-4 right-align">{{user.email}}</div>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
-		
 	</div>
+	
+	<div class="row sous-titre">
+        <div class="card-panel col s12 m12 ">
+            <h5><i class="material-icons red-text left">playlist_add_check</i>Vos séries visionnées</h5>
+        </div>
+    </div>
+    <div class="card horizontal small">
+        <div class="card-image valign-wrapper">
+			{% if season.poster_path is not empty %}
+				<img class="valign" src="https://image.tmdb.org/t/p/original/{{ season.poster_path }}">
+			{% else %}
+				<img class="valign" src="http://www.ztackey.com/wp-content/uploads/2016/11/placeholder-1.jpg">
+			{% endif %}
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <h3 class="header">Titre de la série</h3>
+                <p>description serie</p>
+            </div>
+        </div>
+    </div> 
+    <ul class="collapsible" data-collapsible="accordion">
+		<li>
+			<div class="collapsible-header">Saison 1</div>
+			<div class="collapsible-body">
+				<ul class="collection">
+					<li class="collection-item"><b>Episode :</b> nom episode</li><a href="/"><i class="icone_ajout_episode material-icons grey-text darken-1 right">clear</i></a>
+				</ul>
+			</div>
+		</li>
+    </ul>
+	
 </div>
