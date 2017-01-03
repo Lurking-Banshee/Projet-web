@@ -67,7 +67,7 @@ final class HomeController
             $connecter = 2;
         }
         $tabGenres = $serie->genres()->get();
-        return $this->view->render($response, 'show.twig', Array("serie" => $serie, "seasons" => $tabSaison, "genres" => $tabGenres, "connecter" => $connecter;));
+        return $this->view->render($response, 'show.twig', Array("serie" => $serie, "seasons" => $tabSaison, "genres" => $tabGenres, "connecter" => $connecter));
     }
 
     public function search(Request $request, Response $response, $args)
