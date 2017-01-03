@@ -18,6 +18,8 @@ $app->get('/show/{id}', 'App\Controllers\HomeController:show')->setName('show');
 
 $app->post('/ajax/addEpisode/{id}','App\Controllers\AjaxController:addEpisode');
 
+$app->post('/ajax/deleteEpisode/{id}','App\Controllers\AjaxController:deleteEpisode');
+
 $app->get('/search', 'App\Controllers\HomeController:search')->setName('search');
 
 $app->post('/search', 'App\Controllers\HomeController:resultSearch')->setName('resultSearch');

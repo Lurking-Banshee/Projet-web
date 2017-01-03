@@ -11,6 +11,7 @@ namespace App\Controllers;
 
 use App\Models\Episodes;
 use App\Models\User;
+use Illuminate\Database\Capsule\Manager;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -33,6 +34,13 @@ class AjaxController
         $episode = Episodes::find($args['id']);
         $user->episode()->attach($episode);
         $user->save();
+        echo json_encode('');
+    }
+
+    public function deleteEpisode(Request $request, Response $response, $args){
+        $episode = Episodes::find($args['id']);
+        $user = User::find($_SESSION['uniqid']);
+        Manager::table('usersepisodes')->where('user_id', $user->id)->where('episode_id', $episode->id)->delete();
         echo json_encode('');
     }
 }
