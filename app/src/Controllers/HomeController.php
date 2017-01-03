@@ -35,10 +35,12 @@ final class HomeController
         $tabNouv = Series::orderBy('first_air_date', 'DESC')->take(4)->get();
         $tabTend = Series::orderBy('popularity', 'DESC')->take(4)->get();
         if(isset($_SESSION['uniqid'])){
-            $this->view->render($response, 'homepageUser.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend));
+            $connecter = 1;
         }else{
-            $this->view->render($response, 'homepage.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend));
+            $connecter = 2;
         }
+        $this->view->render($response, 'homepage.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend, "connecter"=>$connecter));
+
         return $response;
     }
 
