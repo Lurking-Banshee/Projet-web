@@ -40,8 +40,6 @@ final class HomeController
             $connecter = 2;
         }
         $this->view->render($response, 'homepage.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend, "connecter"=>$connecter));
-		$this->view->render($response, 'show.twig', array("connecter"=>$connecter));
-
         return $response;
     }
 
@@ -63,8 +61,13 @@ final class HomeController
             $tabEpisodes = $season->episodes()->orderBy('number', 'ASC')->get();
             $season['tabEpisodes'] = $tabEpisodes;
         }
+        if(isset($_SESSION['uniqid'])){
+            $connecter = 1;
+        }else{
+            $connecter = 2;
+        }
         $tabGenres = $serie->genres()->get();
-        return $this->view->render($response, 'show.twig', Array("serie" => $serie, "seasons" => $tabSaison, "genres" => $tabGenres));
+        return $this->view->render($response, 'show.twig', Array("serie" => $serie, "seasons" => $tabSaison, "genres" => $tabGenres, "connecter" => $connecter;));
     }
 
     public function search(Request $request, Response $response, $args)
