@@ -36,7 +36,7 @@
 			<div class="collapsible-body">
 				<ul class="collection">
                     {% for episode in tabEpisodes %}
-					<div id="bloc_{{ episode.id }}"><li class="collection-item"><b>Episode {{ episode.number }} : </b>{{ episode.name }}</li><a name="add" id="{{ episode.id }}" class="deleteEpisode"><i class="icone_ajout_episode material-icons red-text darken-1 right">clear</i></a></div>
+					<div id="bloc_{{ episode.id }}"><li class="collection-item"><b>Episode {{ episode.number }} : </b>{{ episode.name }}</li><a name="add" id="{{ episode.id }}" class="deleteEpisode"><i class="icone_episode material-icons red-text darken-1 right">clear</i></a></div>
                     {% endfor %}
 				</ul>
 			</div>

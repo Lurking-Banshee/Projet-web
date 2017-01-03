@@ -9,6 +9,7 @@ $('.addEpisode').click(function (){
         type : 'POST',
         dataType : 'JSON'
     }).done(function(data) {
+		 Materialize.toast('Episode ajouté!', 4000);
         console.log(data);
     }).fail(function(data) {
         console.log(data);
@@ -22,6 +23,7 @@ $('.deleteEpisode').click(function (){
         type : 'POST',
         dataType : 'JSON'
     }).done(function(data){
+		 Materialize.toast('Episode supprimé', 4000);
         console.log('ok');
         $('#bloc_'+id).remove();
     }).fail(function(data){
