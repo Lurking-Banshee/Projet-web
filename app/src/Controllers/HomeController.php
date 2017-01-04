@@ -44,16 +44,40 @@ final class HomeController
         return $response;
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method for accessing the signup page
+     */
     public function signup(Request $request, Response $response, $args)
     {
         return $this->view->render($response, 'signup.twig');
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method for accessing the signin page
+     */
     public function signin(Request $request, Response $response, $args)
     {
         return $this->view->render($response, 'signin.twig');
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method for accessing the show page which present the details of the serie selected
+     */
     public function show(Request $request, Response $response, $args)
     {
         $serie = Series::find($args['id']);
@@ -71,18 +95,42 @@ final class HomeController
         return $this->view->render($response, 'show.twig', Array("serie" => $serie, "seasons" => $tabSaison, "genres" => $tabGenres, "connecter" => $connecter));
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method for accessing the search page
+     */
     public function search(Request $request, Response $response, $args)
     {
         return $this->view->render($response, 'search.twig', Array("type" => $args));
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method for accessing the profile page
+     */
     public function profile(Request $request, Response $response, $args)
     {
         $user = User::find($_SESSION['uniqid']);
         $tabEpisodes = $user->episode()->get();
         return $this->view->render($response, 'profile.twig', array('user' => $user, 'tabEpisodes' => $tabEpisodes));
     }
-	
+
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return \Psr\Http\Message\MessageInterface
+     *
+     * method used on the signup page for adding an user in the database
+     */
     public function addUser(Request $request, Response $response, $args)
     {
         if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])) {
@@ -146,7 +194,14 @@ final class HomeController
         }
     }
 
-
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method used on the search page for searching a serie
+     */
     public function resultSearch(Request $request, Response $response, $args)
     {
 
@@ -190,6 +245,14 @@ final class HomeController
         return $this->view->render($response, 'resultSearch.twig', Array("series" => $tabSeries));
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method used on signin page for login an user who already exist in the database
+     */
     public function loginUser(Request $request, Response $response, $args)
     {
         if (isset($_POST["email"]) && isset($_POST["password"])) {
@@ -214,6 +277,14 @@ final class HomeController
         }
     }
 
+    /**
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     * @return mixed
+     *
+     * method used in the header for logout the user connected
+     */
     public function logout(Request $request, Response $response, $args)
     {
         unset($_SESSION['uniqid']);

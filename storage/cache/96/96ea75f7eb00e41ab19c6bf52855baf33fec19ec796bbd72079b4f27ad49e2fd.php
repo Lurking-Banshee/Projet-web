@@ -73,7 +73,7 @@ class __TwigTemplate_873c7b8d924ed56cb47db322f0193878bd2991691931c87e1f8cf3b4294
             echo twig_escape_filter($this->env, $this->getAttribute($context["episode"], "name", array()), "html", null, true);
             echo "</li><a name=\"add\" id=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["episode"], "id", array()), "html", null, true);
-            echo "\" class=\"deleteEpisode\"><i class=\"icone_ajout_episode material-icons red-text darken-1 right\">clear</i></a></div>
+            echo "\" class=\"deleteEpisode\"><i class=\"icone_episode material-icons red-text darken-1 right\">clear</i></a></div>
                     ";
         }
         $_parent = $context['_parent'];
@@ -141,7 +141,7 @@ class __TwigTemplate_873c7b8d924ed56cb47db322f0193878bd2991691931c87e1f8cf3b4294
 /* 			<div class="collapsible-body">*/
 /* 				<ul class="collection">*/
 /*                     {% for episode in tabEpisodes %}*/
-/* 					<div id="bloc_{{ episode.id }}"><li class="collection-item"><b>Episode {{ episode.number }} : </b>{{ episode.name }}</li><a name="add" id="{{ episode.id }}" class="deleteEpisode"><i class="icone_ajout_episode material-icons red-text darken-1 right">clear</i></a></div>*/
+/* 					<div id="bloc_{{ episode.id }}"><li class="collection-item"><b>Episode {{ episode.number }} : </b>{{ episode.name }}</li><a name="add" id="{{ episode.id }}" class="deleteEpisode"><i class="icone_episode material-icons red-text darken-1 right">clear</i></a></div>*/
 /*                     {% endfor %}*/
 /* 				</ul>*/
 /* 			</div>*/

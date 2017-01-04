@@ -150,11 +150,11 @@ class __TwigTemplate_eecd08376ba93e05ae4578a7b50c253c83e7e422c4518bcbf47b01364d2
                         <a name=\"add\" id=\"";
                     // line 57
                     echo twig_escape_filter($this->env, $this->getAttribute($context["episode"], "id", array()), "html", null, true);
-                    echo "\" class=\"addEpisode\"><i class=\"icone_ajout_episode material-icons red-text darken-1 right\">add</i></a>
+                    echo "\" class=\"addEpisode\"><i class=\"icone_episode material-icons red-text darken-1 right\">add</i></a>
                     ";
                 } else {
                     // line 59
-                    echo "                        <a href=\"/signin\"><i class=\"icone_ajout_episode material-icons red-text darken-1 right\">add</i></a>
+                    echo "                        <a href=\"/signin\"><i class=\"icone_episode material-icons red-text darken-1 right\">add</i></a>
                     ";
                 }
                 // line 61
@@ -255,9 +255,9 @@ class __TwigTemplate_eecd08376ba93e05ae4578a7b50c253c83e7e422c4518bcbf47b01364d2
 /*                 <li>*/
 /*                     <div class="collapsible-header"><b>Episode {{ episode.number }} :</b> {{ episode.name }}</div>*/
 /*                     {% if connecter == 1 %} <!--Affiche que si utilisateur connecte-->*/
-/*                         <a name="add" id="{{ episode.id }}" class="addEpisode"><i class="icone_ajout_episode material-icons red-text darken-1 right">add</i></a>*/
+/*                         <a name="add" id="{{ episode.id }}" class="addEpisode"><i class="icone_episode material-icons red-text darken-1 right">add</i></a>*/
 /*                     {% else %}*/
-/*                         <a href="/signin"><i class="icone_ajout_episode material-icons red-text darken-1 right">add</i></a>*/
+/*                         <a href="/signin"><i class="icone_episode material-icons red-text darken-1 right">add</i></a>*/
 /*                     {% endif %}*/
 /*                     {% if episode.overview is not empty %}*/
 /*                         <div class="collapsible-body"><p class="white">{{ episode.overview }}</p></div>*/
