@@ -35,14 +35,12 @@ final class HomeController
         $this->logger->info("Home page action dispatched");
         $tabNouv = Series::orderBy('first_air_date', 'DESC')->take(4)->get();
         $tabTend = Series::orderBy('popularity', 'DESC')->take(4)->get();
-		$tabReco = collect();
         if(isset($_SESSION['uniqid'])){
-			$tabReco = Series::orderBy('name', 'DESC')->take(4)->get();
             $connecter = 1;
         }else{
             $connecter = 2;
         }
-        $this->view->render($response, 'homepage.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend, 'seriesReco' => $tabReco, "connecter"=>$connecter));
+        $this->view->render($response, 'homepage.twig', array('seriesNouv' => $tabNouv, 'seriesTend' => $tabTend, "connecter"=>$connecter));
         return $response;
     }
 
